@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BookReader</name>
+    </assembly>
+    <members>
+        <member name="M:BookReader.Controllers.BookController.GetBooks">
+            <summary>
+            小说列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BookReader.Controllers.BookController.GetChapters(System.String)">
+            <summary>
+            章节列表
+            </summary>
+            <param name="bookHref"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookReader.Controllers.BookController.GetChapter(System.String)">
+            <summary>
+            章节内容
+            </summary>
+            <param name="chapterHref"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BookReader.Models.Book">
+            <summary>
+            小说
+            </summary>
+        </member>
+        <member name="P:BookReader.Models.Book.BookName">
+            <summary>
+            小说名称
+            </summary>
+        </member>
+        <member name="P:BookReader.Models.Book.BookHref">
+            <summary>
+            小说链接
+            </summary>
+        </member>
+        <member name="P:BookReader.Models.Book.Chapters">
+            <summary>
+            章节列表
+            </summary>
+        </member>
+        <member name="T:BookReader.Models.Chapter">
+            <summary>
+            章节
+            </summary>
+        </member>
+        <member name="P:BookReader.Models.Chapter.ChapterName">
+            <summary>
+            章节名称
+            </summary>
+        </member>
+        <member name="P:BookReader.Models.Chapter.ChapterHref">
+            <summary>
+            章节链接
+            </summary>
+        </member>
+        <member name="P:BookReader.Models.Chapter.ChapterContent">
+            <summary>
+            章节内容
+            </summary>
+        </member>
+        <member name="M:BookReader.Services.IBookService.GetBooks">
+            <summary>
+            小说列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BookReader.Services.IBookService.SearchBook(System.String)">
+            <summary>
+            搜索小说
+            </summary>
+            <param name="bookName">小说名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:BookReader.Services.IBookService.GetChapters(System.String)">
+            <summary>
+            获取章节列表
+            </summary>
+            <param name="bookHref">小说链接</param>
+            <returns></returns>
+        </member>
+        <member name="M:BookReader.Services.IBookService.GetChapter(System.String)">
+            <summary>
+            获取章节内容
+            </summary>
+            <param name="chapterHref">章节链接</param>
+            <returns></returns>
+        </member>
+        <member name="M:BookReader.Services.BookService.GetBooks">
+            <summary>
+            小说列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BookReader.Services.BookService.SearchBook(System.String)">
+            <summary>
+            搜索小说
+            </summary>
+            <param name="bookName">小说名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:BookReader.Services.BookService.GetChapters(System.String)">
+            <summary>
+            获取章节列表
+            </summary>
+            <param name="bookHref">小说链接</param>
+            <returns></returns>
+        </member>
+        <member name="M:BookReader.Services.BookService.GetChapter(System.String)">
+            <summary>
+            获取章节内容
+            </summary>
+            <param name="chapterHref">章节链接</param>
+            <returns></returns>
+        </member>
+        <member name="M:BookReader.Services.ICommonService.GetHtmlSourceCodeAsync(System.String)">
+            <summary>
+            获取html内容
+            </summary>
+            <param name="uri"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookReader.Services.CommonService.GetHtmlSourceCodeAsync(System.String)">
+            <summary>
+            获取html内容
+            </summary>
+            <param name="uri"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

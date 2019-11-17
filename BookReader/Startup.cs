@@ -4,12 +4,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using BookReader.Services;
+using System.Reflection;
+using Swashbuckle.AspNetCore.Swagger;
+using System.IO;
 
 namespace BookReader
 {
@@ -25,6 +28,17 @@ namespace BookReader
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //swagger
+            services.AddSwaggerGen(option =>
+            {
+                option.SwaggerDoc("v1", new Info { Title = "BookReader", Version = "v1" });
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                option.IncludeXmlComments(xmlPath);
+            });
+
+            services.AddScoped<IBookService, BookService>();
+            services.AddScoped<ICommonService, CommonService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -35,13 +49,15 @@ namespace BookReader
             {
                 app.UseDeveloperExceptionPage();
             }
-            else
-            {
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
 
-            app.UseHttpsRedirection();
+            //swagger
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("./swagger/v1/swagger.json", "V1");
+                c.RoutePrefix = string.Empty;
+            });
+
             app.UseMvc();
         }
     }

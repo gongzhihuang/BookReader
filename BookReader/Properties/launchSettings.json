@@ -4,8 +4,8 @@
     "windowsAuthentication": false, 
     "anonymousAuthentication": true, 
     "iisExpress": {
-      "applicationUrl": "http://localhost:54997",
-      "sslPort": 44396
+      "applicationUrl": "http://localhost:54512",
+      "sslPort": 0
     }
   },
   "profiles": {
@@ -20,8 +20,8 @@
     "BookReader": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/values",
-      "applicationUrl": "https://localhost:5001;http://localhost:5000",
+      "launchUrl": "api/parsehtml",
+      "applicationUrl": "http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
