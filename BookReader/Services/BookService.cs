@@ -21,7 +21,7 @@ namespace BookReader.Services
         /// </summary>
         /// <param name="bookName">小说名称</param>
         /// <returns></returns>
-        Task<List<string>> SearchBook(string bookName);
+        Task<List<Book>> SearchBook(string bookName);
 
         /// <summary>
         /// 获取章节列表
@@ -91,12 +91,12 @@ namespace BookReader.Services
         /// </summary>
         /// <param name="bookName">小说名称</param>
         /// <returns></returns>
-        public async Task<List<string>> SearchBook(string bookName)
+        public async Task<List<Book>> SearchBook(string bookName)
         {
             string url = "https://www.piaotian5.com/s.php?ie=gbk&q=" + bookName;
             var html = await _commonService.GetHtmlSourceCodeAsync(url);
 
-            List<string> books = new List<string>();
+            List<Book> books = new List<Book>();
 
             if (!string.IsNullOrWhiteSpace(html))
             {
@@ -108,7 +108,12 @@ namespace BookReader.Services
 
                 foreach (var item in nameList)
                 {
-                    books.Add(item.TextContent + item.GetAttribute("href"));
+                    Book book = new Book
+                    {
+                        BookName = item.TextContent,
+                        BookHref = item.GetAttribute("href")
+                    };
+                    books.Add(book);
                 }
 
                 return books;

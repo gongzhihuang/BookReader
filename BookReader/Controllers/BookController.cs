@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using BookReader.Services;
+using BookReader.Models;
 
 namespace BookReader.Controllers
 {
@@ -23,6 +24,25 @@ namespace BookReader.Controllers
         {
             var res = await _bookService.GetBooks();
             return Ok(res);
+        }
+
+        /// <summary>
+        /// 小说
+        /// </summary>
+        /// <param name="bookName">小说名称</param>
+        /// <param name="bookHref">小说链接</param>
+        /// <returns></returns>
+        [HttpGet("/book")]
+        public async Task<IActionResult> GetBook(string bookName,string bookHref)
+        {
+            var chapters = await _bookService.GetChapters(bookHref);
+            Book book = new Book
+            {
+                BookName = bookName,
+                BookHref = bookHref,
+                Chapters = chapters
+            };
+            return Ok(book);
         }
 
         /// <summary>
@@ -49,7 +69,12 @@ namespace BookReader.Controllers
             return Ok(res);
         }
 
-        [HttpGet("/book")]
+        /// <summary>
+        /// 搜索小说
+        /// </summary>
+        /// <param name="bookName">小说名称</param>
+        /// <returns></returns>
+        [HttpGet("/serrchbook")]
         public async Task<IActionResult> SearchBook(string bookName)
         {
             var res = await _bookService.SearchBook(bookName);

@@ -10,6 +10,14 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:BookReader.Controllers.BookController.GetBook(System.String,System.String)">
+            <summary>
+            小说
+            </summary>
+            <param name="bookName">小说名称</param>
+            <param name="bookHref">小说链接</param>
+            <returns></returns>
+        </member>
         <member name="M:BookReader.Controllers.BookController.GetChapters(System.String)">
             <summary>
             章节列表
@@ -22,6 +30,13 @@
             章节内容
             </summary>
             <param name="chapterHref"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookReader.Controllers.BookController.SearchBook(System.String)">
+            <summary>
+            搜索小说
+            </summary>
+            <param name="bookName">小说名称</param>
             <returns></returns>
         </member>
         <member name="T:BookReader.Models.Book">
