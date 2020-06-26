@@ -74,7 +74,7 @@ namespace BookReader.Controllers
         /// </summary>
         /// <param name="bookName">小说名称</param>
         /// <returns></returns>
-        [HttpGet("serrchbook")]
+        [HttpGet("searchbook")]
         public async Task<IActionResult> SearchBook(string bookName)
         {
             var res = await _bookService.SearchBook(bookName);

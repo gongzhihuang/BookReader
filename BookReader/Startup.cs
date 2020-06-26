@@ -15,6 +15,8 @@ using Swashbuckle.AspNetCore.Swagger;
 using System.IO;
 using Microsoft.OpenApi.Models;
 using Microsoft.Extensions.Hosting;
+using BookReader.IServices;
+using Swashbuckle.AspNetCore.SwaggerUI;
 
 namespace BookReader
 {
@@ -49,7 +51,6 @@ namespace BookReader
             {
                 app.UseDeveloperExceptionPage();
             }
-            //app.UseDeveloperExceptionPage();
 
             //swagger
             app.UseSwagger();
@@ -57,7 +58,7 @@ namespace BookReader
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
                 //c.DocExpansion(DocExpansion.None);
-                c.DefaultModelsExpandDepth(-1);
+                //c.DefaultModelsExpandDepth(-1);
             });
 
             app.UseHttpsRedirection();
