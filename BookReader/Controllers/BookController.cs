@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using BookReader.Services;
+using BookReader.IServices;
 using BookReader.Models;
 
 namespace BookReader.Controllers
