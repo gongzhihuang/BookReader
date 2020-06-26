@@ -19,7 +19,7 @@ namespace BookReader.Controllers
         /// 小说列表
         /// </summary>
         /// <returns></returns>
-        [HttpGet("/books")]
+        [HttpGet("books")]
         public async Task<IActionResult> GetBooks()
         {
             var res = await _bookService.GetBooks();
@@ -32,7 +32,7 @@ namespace BookReader.Controllers
         /// <param name="bookName">小说名称</param>
         /// <param name="bookHref">小说链接</param>
         /// <returns></returns>
-        [HttpGet("/book")]
+        [HttpGet("book")]
         public async Task<IActionResult> GetBook(string bookName,string bookHref)
         {
             var chapters = await _bookService.GetChapters(bookHref);
@@ -50,7 +50,7 @@ namespace BookReader.Controllers
         /// </summary>
         /// <param name="bookHref"></param>
         /// <returns></returns>
-        [HttpGet("/chapters")]
+        [HttpGet("chapters")]
         public async Task<IActionResult> GetChapters(string bookHref)
         {
             var res = await _bookService.GetChapters(bookHref);
@@ -62,7 +62,7 @@ namespace BookReader.Controllers
         /// </summary>
         /// <param name="chapterHref"></param>
         /// <returns></returns>
-        [HttpGet("/chapter")]
+        [HttpGet("chapter")]
         public async Task<IActionResult> GetChapter( string chapterHref)
         {
             var res = await _bookService.GetChapter(chapterHref);
@@ -74,7 +74,7 @@ namespace BookReader.Controllers
         /// </summary>
         /// <param name="bookName">小说名称</param>
         /// <returns></returns>
-        [HttpGet("/serrchbook")]
+        [HttpGet("serrchbook")]
         public async Task<IActionResult> SearchBook(string bookName)
         {
             var res = await _bookService.SearchBook(bookName);
